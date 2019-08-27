@@ -1,0 +1,22 @@
+{
+  "name": "hot-restaurant",
+  "version": "1.0.0",
+  "description": "Using Node .js and Express to build a restaurant reservation application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyleesia/Hot-Restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nyleesia/Hot-Restaurant/issues"
+  },
+  "homepage": "https://github.com/Nyleesia/Hot-Restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
