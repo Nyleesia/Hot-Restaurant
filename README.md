@@ -14,5 +14,5 @@ It uses:
   Node.js, and
   Express
   
-It is deployed on Heroku: and,
-is based on this GitHub repository: https://github.com/Nyleesia/Hot-Restaurant
+It is deployed on Heroku: https://hot-restaurant-nns.herokuapp.com/ and,
+is based on this GitHub repository: https://github.com/Nyleesia/Hot-Restaurant.
