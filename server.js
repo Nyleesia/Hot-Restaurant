@@ -50,6 +50,15 @@ app.get("/api/tables", function (req, res) {
 
 });
 
+// get the current tables that are on the wait list
+app.get("/api/waitlist", function(req, res){
+  let tables = [];
+  if(tablelist.length > 5){
+    tables = tablelist.slice(5);
+  }
+  res.status(200).json(tables);
+})
+
 // Create a reserve post route
 app.post("/api/reserve", function (req, res) {
   tablelist.push(
@@ -65,9 +74,7 @@ app.post("/api/reserve", function (req, res) {
   }else{
     res.status(200).send("Your reservation has been accepted");
   }
-  
 });
-
 
 
 // Starts the server to begin listening
