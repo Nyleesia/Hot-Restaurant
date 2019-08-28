@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Tables</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">   <!-- CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS -->
   <script src="https://code.jquery.com/jquery.js"></script> <!-- JQ -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script><!--JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!--JS -->
 </head>
+
 <body>
-<!-- Main Container -->
+  <!-- Main Container -->
   <div class="container">
 
-<!-- jumbotron -->
+    <!-- jumbotron -->
     <div class="jumbotron">
       <h1 class="text-center">
         <span class="fa fa-fire"></span> Hot Restaurant</h1>
@@ -24,7 +28,7 @@
       <div class="text-center">
         <a href="/reserve">
           <button class="btn btn-lg btn-primary">
-            <span class="fa fa-list-alt"></span> Tables</button>
+            <span class="fa fa-list-alt"></span> Make a reservation</button>
         </a>
         <a href="/">
           <button class="btn btn-lg btn-default">
@@ -34,15 +38,15 @@
       </div>
     </div>
 
-<!-- jumbotron end -->
+    <!-- jumbotron end -->
 
-<!-- repeating elements/ table  -->
-    <div class="row" id= "reservations">
-      <div class = "card col-lg-12" id = "currentReservations">
-      Current Reservations
+    <!-- repeating elements/ table  -->
+    <div class="row" id="reservations">
+      <div class="card col-lg-12" id="currentReservations">
+        Current Reservations
       </div>
     </div>
-<!-- repeating elements/ cards end -->
+    <!-- repeating elements/ cards end -->
 
     <footer class="footer">
       <div class="container">
@@ -53,38 +57,41 @@
     </footer>
   </div>
 </body>
-</html> 
+
+</html>
 <script type="text/javascript">
 
-$.get("/api/tables", function(tablelist) {
-       console.log(tablelist);
-       for (var i = 0; i < 5; i++) {
-         var customerName = tablelist[i].customerName;
-         var phoneNumber = tablelist[i].phoneNumber;
-         var customerEmail = tablelist[i].customerEmail;
-         var reserveId = tablelist[i].reserveId;
-         
-         let html1 = `
+  $.get("/api/tables", function (tablelist) {
+    if (tablelist.length > 0) {
+      for (var i = 0; i < 5; i++) {
+        var customerName = tablelist[i].customerName;
+        var phoneNumber = tablelist[i].phoneNumber;
+        var customerEmail = tablelist[i].customerEmail;
+        var reserveId = tablelist[i].reserveId;
+
+        let html1 = `
           <div> Customer Name: ${customerName} </div>
           <div> Phone Number: ${phoneNumber} </div>
           <div> Email: ${customerEmail} </div>
           <div> Reservation ID: ${reserveId} </div>`
-          
-          $("#currentReservations").append(`${html1}`);    
-       }
-       for (var i = 5; i < tablelist.length; i++) {
-         var customerName = tablelist[i].customerName;
-         var phoneNumber = tablelist[i].phoneNumber;
-         var customerEmail = tablelist[i].customerEmail;
-         var reserveId = tablelist[i].reserveId;
-         
-         let html2 = `
+
+        $("#currentReservations").append(`${html1}`);
+      }
+      for (var i = 5; i < tablelist.length; i++) {
+        var customerName = tablelist[i].customerName;
+        var phoneNumber = tablelist[i].phoneNumber;
+        var customerEmail = tablelist[i].customerEmail;
+        var reserveId = tablelist[i].reserveId;
+
+        let html2 = `
           <div> Customer Name: ${customerName} </div>
           <div> Phone Number: ${phoneNumber} </div>
           <div> Email: ${customerEmail} </div>
           <div> Reservation ID: ${reserveId} </div>`
-          
-          $("#waitingList").append(`${html2}`);
-       }
- });
- </script>
+
+        $("#waitingList").append(`${html2}`);
+      }
+    }
+
+  });
+</script>
