@@ -27,7 +27,7 @@ app.get("/tables", function (req, res) {
 
 // Displays reservation addition
 app.get("/reserve", function (req, res) {
-  res.sendFile(path.join(__dirname, "reservations.html"));
+  res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 // Displays a table list
@@ -60,7 +60,12 @@ app.post("/api/reserve", function (req, res) {
       customerID: req.body.customerID || ""
     }
   );
-  res.status(200).send("part added success");
+  if(tablelist.length > 5){
+    res.status(200).send("You have been added to the wait list");
+  }else{
+    res.status(200).send("Your reservation has been accepted");
+  }
+  
 });
 
 
