@@ -37,38 +37,12 @@
 <!-- jumbotron end -->
 
 <!-- repeating elements/ table  -->
-    <div class="row">
-      <div class="col-lg-12">
-
-        <div class="card">
-          <div class="card-header">
-            Reservation(s)
-          </div>
-          <div class="card-body">
-            <form role="form">
-              <div class="form-group">
-                <label for="reserve-name">Name</label>
-                <input type="text" class="form-control" id="reserve-name">
-              </div>
-              <div class="form-group">
-                <label for="reserve-phone">Phone Number</label>
-                <input type="text" class="form-control" id="reserve-phone">
-              </div>
-              <div class="form-group">
-                <label for="reserve-email">Email</label>
-                <input type="text" class="form-control" id="reserve-email">
-              </div>
-              <div class="form-group">
-                <label for="reserve-unique-id">ID</label>
-                <input type="text" class="form-control" id="reserve-unique-id">
-              </div>
-              <button type="submit" class="btn btn-primary submit">Submit</button>
-            </form>
-          </div>
-        </div>
+    <div class="row" id= "reservations">
+      <div class = "card col-lg-12" id = "currentReservations">
+      Current Reservations
       </div>
     </div>
-<!-- repeating elements/ table end -->
+<!-- repeating elements/ cards end -->
 
     <footer class="footer">
       <div class="container">
@@ -77,9 +51,40 @@
           <a href="/api/waitlist">API Wait List</a> </h2>
       </div>
     </footer>
-
   </div>
-
 </body>
-
 </html> 
+<script type="text/javascript">
+
+$.get("/api/tables", function(data) {
+       console.log(data);
+       for (var i = 0; i < 5; i++) {
+         var customerName = tablelist[i].customerName;
+         var phoneNumber = tablelist[i].phoneNumber;
+         var customerEmail = tablelist[i].customerEmail;
+         var reserveId = tablelist[i].reserveId;
+         
+         let html1 = `
+          <div> Customer Name: ${customerName} </div>
+          <div> Phone Number: ${phoneNumber} </div>
+          <div> Email: ${customerEmail} </div>
+          <div> Reservation ID: ${reserveId} </div>`
+          
+          $("#currentReservations").append(`${html1}`);    
+       }
+       for (var i = 5; i < tablelist.length; i++) {
+         var customerName = tablelist[i].customerName;
+         var phoneNumber = tablelist[i].phoneNumber;
+         var customerEmail = tablelist[i].customerEmail;
+         var reserveId = tablelist[i].reserveId;
+         
+         let html2 = `
+          <div> Customer Name: ${customerName} </div>
+          <div> Phone Number: ${phoneNumber} </div>
+          <div> Email: ${customerEmail} </div>
+          <div> Reservation ID: ${reserveId} </div>`
+          
+          $("#waitingList").append(`${html2}`);
+       }
+ });
+ </script>
