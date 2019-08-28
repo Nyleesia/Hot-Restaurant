@@ -67,7 +67,7 @@
         var customerName = tablelist[i].customerName;
         var phoneNumber = tablelist[i].phoneNumber;
         var customerEmail = tablelist[i].customerEmail;
-        var reserveId = tablelist[i].reserveId;
+        var reserveId = tablelist[i].customerID;
 
         let html1 = `
           <div> Customer Name: ${customerName} </div>
@@ -77,11 +77,13 @@
 
         $("#currentReservations").append(`${html1}`);
       }
+    }
+    if(tablelist.length > 5){
       for (var i = 5; i < tablelist.length; i++) {
         var customerName = tablelist[i].customerName;
         var phoneNumber = tablelist[i].phoneNumber;
         var customerEmail = tablelist[i].customerEmail;
-        var reserveId = tablelist[i].reserveId;
+        var reserveId = tablelist[i].customerID;
 
         let html2 = `
           <div> Customer Name: ${customerName} </div>
