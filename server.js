@@ -61,7 +61,7 @@ app.get("/api/waitlist", function(req, res){
   res.status(200).json(tables);
 })
 
-app.get("/api/clear", function(req, res){
+app.get("/api/cleartable", function(req, res){
   tablelist = [];
   res.status(200).json(tablelist);
 })
