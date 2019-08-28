@@ -56,8 +56,8 @@
 </html> 
 <script type="text/javascript">
 
-$.get("/api/tables", function(data) {
-       console.log(data);
+$.get("/api/tables", function(tablelist) {
+       console.log(tablelist);
        for (var i = 0; i < 5; i++) {
          var customerName = tablelist[i].customerName;
          var phoneNumber = tablelist[i].phoneNumber;

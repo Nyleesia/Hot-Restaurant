@@ -95,8 +95,8 @@
 
     console.log(newReservation);
 
-    $.post("/api/reserve", newReservation, function(data) {
-        alert(data);
+    $.post("/api/reserve", newReservation, function(tablelist) {
+        alert(tablelist);
         $("#reserveName").val("");
         $("#reservePhone").val("");
         $("#reserveEmail").val("");
