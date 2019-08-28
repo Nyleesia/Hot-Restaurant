@@ -18,11 +18,11 @@
       <h1 class="text-center">
         <span class="fa fa-fire"></span> Hot Restaurant</h1>
       <hr>
-      <h2 class="text-center">Make a Reservation</h2>
+      <h2 class="text-center">View Tables</h2>
       <br>
 
       <div class="text-center">
-        <a href="/tables">
+        <a href="/reserve">
           <button class="btn btn-lg btn-primary">
             <span class="fa fa-list-alt"></span> Tables</button>
         </a>
@@ -56,8 +56,8 @@
 </html> 
 <script type="text/javascript">
 
-$.get("/api/tables", function(data) {
-       console.log(data);
+$.get("/api/tables", function(tablelist) {
+       console.log(tablelist);
        for (var i = 0; i < 5; i++) {
          var customerName = tablelist[i].customerName;
          var phoneNumber = tablelist[i].phoneNumber;
