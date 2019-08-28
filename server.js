@@ -34,6 +34,8 @@ app.get("/reserve", function (req, res) {
 app.get("/api/tables", function (req, res) {
 
   console.log(tablelist);
+  res.status(200).json(tablelist);
+
 /*
   for (var i = 0; i < 5; i++) {
     var customerName = tablelist[i].customerName;
@@ -57,6 +59,11 @@ app.get("/api/waitlist", function(req, res){
     tables = tablelist.slice(5);
   }
   res.status(200).json(tables);
+})
+
+app.get("/api/clear", function(req, res){
+  tablelist = [];
+  res.status(200).json(tablelist);
 })
 
 // Create a reserve post route
