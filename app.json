@@ -1,0 +1,17 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "description": "",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "Hot-Restaurant",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
