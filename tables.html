@@ -63,11 +63,12 @@
 
   $.get("/api/tables", function (tablelist) {
     if (tablelist.length > 0) {
-      for (var i = 0; i < 5; i++) {
-        var customerName = tablelist[i].customerName;
-        var phoneNumber = tablelist[i].phoneNumber;
-        var customerEmail = tablelist[i].customerEmail;
-        var reserveId = tablelist[i].customerID;
+      tables = tablelist.slice(0,5);
+      for (var i = 0; i < tables.length; i++) {
+        var customerName = tables[i].customerName;
+        var phoneNumber = tables[i].phoneNumber;
+        var customerEmail = tables[i].customerEmail;
+        var reserveId = tables[i].customerID;
 
         let html1 = `
           <div> Customer Name: ${customerName} </div>
